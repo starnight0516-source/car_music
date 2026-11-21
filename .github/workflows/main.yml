@@ -26,7 +26,9 @@ jobs:
 
       - name: Unzip and Build Debug APK
         run: |
-          unzip -o CarMusicYT_AndroidProject.zip -d build_src
+          ZIP_FILE=$(ls -1 *.zip | head -n 1)
+          echo "Using zip: $ZIP_FILE"
+          unzip -o "$ZIP_FILE" -d build_src
           cd build_src/CarMusicYT
           gradle assembleDebug --stacktrace
 
